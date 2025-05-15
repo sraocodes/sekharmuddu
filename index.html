@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prof. M. Sekhar</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <style>
+    /* Additional styles for information sections */
+    .info-section {
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+    
+    .info-section h2 {
+      font-size: 1.3rem;
+      color: var(--clr-primary);
+      margin-bottom: 0.5rem;
+      border-bottom: 2px solid var(--clr-nav-bg);
+      padding-bottom: 0.3rem;
+    }
+    
+    .info-section a {
+      color: var(--clr-primary);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    
+    .info-section a:hover {
+      color: var(--clr-accent);
+    }
+    
+    .contact-details {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.5rem 1rem;
+      align-items: start;
+      margin-top: 0.5rem;
+    }
+    
+    .contact-details dt {
+      font-weight: bold;
+    }
+    
+    .contact-details dd {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Prof. M. Sekhar</h1>
+    <p>Professor, Dept. of Civil Engg., Indian Institute of Science, Bangalore (India)</p>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+  </header>
+
+  <div class="container">
+    <aside>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="education.html">Education &amp; Experience</a></li>
+          <li><a href="research.html">Research Interest</a></li>
+          <li><a href="teaching.html">Teaching</a></li>
+          <li><a href="activities.html">Synergistic Activities</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="recognitions.html">Recognitions</a></li>
+          <li><a href="thesis.html">Thesis Advisor &amp; Students</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main>
+      <section class="home">
+        <div class="profile-card">
+          <img src="fig.JPG" alt="Prof. M. Sekhar portrait">
+          <div class="profile-details">
+            <address>
+              Professor<br>
+              Water Resources &amp; Environmental Engineering Group<br>
+              Department of Civil Engineering<br>
+              Indian Institute of Science<br>
+              Bangalore – 560 012<br>
+              <a href="http://civil.iisc.ac.in/~muddu">civil.iisc.ac.in/~muddu</a>
+            </address>
+          </div>
+        </div>
+        
+        <div class="info-section">
+          <h2>Profile</h2>
+          <p><a href="http://iiscprofiles.irins.org/profile/54844" target="_blank">http://iiscprofiles.irins.org/profile/54844</a></p>
+        </div>
+        
+        <div class="info-section">
+          <h2>Interdisciplinary Centre for Water Research (ICWaR)</h2>
+          <p>Associate Faculty</p>
+          <p><a href="http://www.icwar.iisc.ac.in/" target="_blank">http://www.icwar.iisc.ac.in/</a></p>
+        </div>
+        
+        <div class="info-section">
+          <h2>Indo-French Cell for Water Sciences</h2>
+          <p>Research Collaborator</p>
+          <p><a href="http://www.cefirse.ird.fr/" target="_blank">http://www.cefirse.ird.fr/</a></p>
+        </div>
+        
+        <div class="info-section">
+          <h2>Contact Details</h2>
+          <dl class="contact-details">
+            <dt>Work:</dt>
+            <dd>+91 (80) 22 93 22 45 &amp; +91 80 29 62 62 59</dd>
+            
+            <dt>Home:</dt>
+            <dd>+91 (80) 23 60 28 70 &amp; +91 (80) 23 60 35 25</dd>
+            
+            <dt>Portable:</dt>
+            <dd>+91 98450 96259</dd>
+            
+            <dt>Email:</dt>
+            <dd>
+              <a href="mailto:muddu@iisc.ac.in">muddu@iisc.ac.in</a> (work)<br>
+              <a href="mailto:sekhar.muddu@gmail.com">sekhar.muddu@gmail.com</a> (preferred)
+            </dd>
+          </dl>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,166 +1,264 @@
-/*—————— Variables & Reset ——————*/
+/*—————— Variables & Reset ——————*/ 
 :root {
-    --clr-primary:   #8b0000;
-    --clr-accent:    #ffd700;
-    --clr-nav-bg:    #f4f4f4;
-    --clr-bg:        #fff;
-    --clr-text:      #333;
-    --ff-sans:       'Inter', sans-serif;
-    --transition:    0.3s ease;
-  }
-  *,
-  *::before,
-  *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: var(--ff-sans), sans-serif;
-    color: var(--clr-text);
-    background: var(--clr-bg);
-    line-height: 1.5;
-  }
-  
-  /*—————— Header ——————*/
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: var(--clr-primary);
-    color: #fff;
-    padding: clamp(0.75rem, 2.5vw, 1.5rem);
-    text-align: center;
-  }
-  header h1 {
-    font-size: clamp(1.5rem, 5vw, 2rem);
-  }
-  header p {
-    font-size: clamp(0.8rem, 2.5vw, 1rem);
-    opacity: 0.9;
-  }
-  .menu-toggle {
-    display: none;
-    position: absolute;
-    top: clamp(0.75rem, 2.5vw, 1.5rem);
-    right: clamp(0.75rem, 2.5vw, 1.5rem);
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  
-  /*—————— Layout ——————*/
+  --clr-primary: #8b0000;
+  --clr-accent: #ffd700;
+  --clr-nav-bg: #f4f4f4;
+  --clr-bg: #fff;
+  --clr-text: #333;
+  --ff-heading: 'Lora', serif;
+  --ff-sans: 'Inter', sans-serif;
+  --transition: 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Add Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+body {
+  font-family: var(--ff-sans), sans-serif;
+  color: var(--clr-text);
+  background: var(--clr-bg);
+  line-height: 1.6;
+}
+
+/* Typography enhancements */
+h1, h2, h3 {
+  font-family: var(--ff-heading);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+h2 {
+  color: var(--clr-primary);
+  border-bottom: 2px solid rgba(139, 0, 0, 0.1);
+  padding-bottom: 0.5rem;
+  margin-top: 2rem;
+}
+
+h3 {
+  color: var(--clr-primary);
+  margin-top: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--clr-primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--clr-accent);
+}
+
+/*—————— Header ——————*/
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--clr-primary);
+  color: #fff;
+  padding: clamp(0.75rem, 2.5vw, 1.5rem);
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+header h1 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: 600;
+}
+
+header p {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  opacity: 0.9;
+  font-style: italic;
+}
+
+.menu-toggle {
+  display: none;
+  position: absolute;
+  top: clamp(0.75rem, 2.5vw, 1.5rem);
+  right: clamp(0.75rem, 2.5vw, 1.5rem);
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/*—————— Layout ——————*/
+.container {
+  display: grid;
+  grid-template-areas: "sidebar main";
+  grid-template-columns: 250px 1fr;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+aside {
+  grid-area: sidebar;
+  background: var(--clr-nav-bg);
+  padding: 1.25rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+main {
+  grid-area: main;
+}
+
+/* Enhanced section styling */
+section {
+  margin-bottom: 2.5rem;
+}
+
+#intro p {
+  font-size: 1.05rem;
+  border-left: 3px solid var(--clr-primary);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+}
+
+/*—————— Navigation ——————*/
+nav ul {
+  list-style: none;
+}
+
+nav li + li {
+  margin-top: 0.75rem;
+  border-top: 1px solid rgba(139, 0, 0, 0.1);
+  padding-top: 0.75rem;
+}
+
+nav a {
+  display: block;
+  text-decoration: none;
+  color: var(--clr-primary);
+  font-weight: 600;
+  transition: color var(--transition);
+  padding: 0.25rem 0;
+}
+
+nav a:hover {
+  color: var(--clr-accent);
+}
+
+/* List styling */
+ul, ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+#research-areas ol li {
+  margin-bottom: 1.25rem;
+}
+
+#research-areas ol li strong {
+  color: var(--clr-primary);
+}
+
+/*—————— Profile Card (Home) ——————*/
+.profile-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  max-width: 360px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+.profile-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.profile-details {
+  padding: 1rem;
+}
+
+.profile-details address {
+  font-style: normal;
+  line-height: 1.4;
+}
+
+.profile-details a {
+  color: var(--clr-primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/*—————— Tablet: ≤1024px ——————*/
+@media (max-width: 1024px) {
   .container {
-    display: grid;
-    grid-template-areas: "sidebar main";
-    grid-template-columns: 250px 1fr;
-    gap: 1rem;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    grid-template-areas:
+      "main"
+      "sidebar";
+    grid-template-columns: 1fr;
   }
+  /* turn the sidebar nav into a horizontal top menu */
   aside {
-    grid-area: sidebar;
-    background: var(--clr-nav-bg);
-    padding: 1rem;
+    order: 2;
+    padding: 0.5rem 1rem;
   }
-  main {
-    grid-area: main;
-  }
-  
-  /*—————— Navigation ——————*/
   nav ul {
-    list-style: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   nav li + li {
-    margin-top: 0.75rem;
+    margin-top: 0;
+    border-top: none;
+    padding-top: 0;
+    border-left: 1px solid rgba(139, 0, 0, 0.2);
+    padding-left: 1rem;
   }
-  nav a {
+}
+
+/*—————— Mobile: ≤600px ——————*/
+@media (max-width: 600px) {
+  .menu-toggle {
     display: block;
-    text-decoration: none;
-    color: var(--clr-primary);
-    font-weight: bold;
-    transition: color var(--transition);
   }
-  nav a:hover {
-    color: var(--clr-accent);
-  }
-  
-  /*—————— Profile Card (Home) ——————*/
-  .profile-card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    max-width: 360px;
-    margin: 0 auto;
-    overflow: hidden;
-    text-align: center;
-  }
-  .profile-card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-  .profile-details {
+  aside {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    height: 100%;
+    transition: left var(--transition);
+    z-index: 9;
     padding: 1rem;
   }
-  .profile-details address {
-    font-style: normal;
-    line-height: 1.4;
+  aside.open {
+    left: 0;
   }
-  .profile-details a {
-    color: var(--clr-primary);
-    text-decoration: none;
-    font-weight: bold;
+  nav ul {
+    display: flex;
+    flex-direction: column;
   }
-  
-  /*—————— Tablet: ≤1024px ——————*/
-  @media (max-width: 1024px) {
-    .container {
-      grid-template-areas:
-        "main"
-        "sidebar";
-      grid-template-columns: 1fr;
-    }
-    /* turn the sidebar nav into a horizontal top menu */
-    aside {
-      order: 2;
-      padding: 0.5rem 1rem;
-    }
-    nav ul {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    nav li + li {
-      margin-top: 0;
-    }
+  nav li + li {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(139, 0, 0, 0.1);
+    padding-top: 0.75rem;
   }
-  
-  /*—————— Mobile: ≤600px ——————*/
-  @media (max-width: 600px) {
-    .menu-toggle {
-      display: block;
-    }
-    aside {
-      position: fixed;
-      top: 0;
-      left: -100%;
-      width: 70%;
-      height: 100%;
-      transition: left var(--transition);
-      z-index: 9;
-      padding: 1rem;
-    }
-    aside.open {
-      left: 0;
-    }
-    nav ul {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-  
+}

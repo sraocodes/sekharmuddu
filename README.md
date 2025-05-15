@@ -36,7 +36,7 @@ script.js: JavaScript functionality
 Contact
 For questions about website maintenance or content updates, please contact:
 
-Current maintainer: [Your Name] ([your email])
+Current maintainer: Dr. Sathyanarayan Rao (www.drsrao.com)
 Prof. M. Sekhar: sekhar.muddu@gmail.com
 
 License

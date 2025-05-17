@@ -80,6 +80,62 @@
         <li><a href="http://www.cefirse.ird.fr/">cefirse.ird.fr</a></li>
       </ul>
     </section>
+
+    <section id="research-images">
+      <h2>Research Images</h2>
+      <div id="image-gallery" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+    </section>
+    
+<!-- Lightbox overlay (hidden by default) -->
+<div id="lightbox" style="
+  position: fixed; top:0; left:0; width:100vw; height:100vh;
+  background: rgba(0,0,0,0.8); display:none; justify-content:center; align-items:center;
+  cursor: pointer; z-index: 1000;">
+  <img id="lightbox-img" src="" alt="Full size" style="max-width:90vw; max-height:90vh; border-radius:8px; box-shadow: 0 0 20px #000;">
+</div>
+
+  <script>
+    const researchImages = [
+      "r-1.jpg",
+      "r-2.jpg",
+      "r-3.jpg",
+      "r-4.jpg",
+      "r-5.jpg"
+    ];
+
+    const galleryDiv = document.getElementById("image-gallery");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    researchImages.forEach(imgName => {
+      const img = document.createElement("img");
+      img.src = imgName;
+      img.alt = imgName;
+      img.style.width = "200px";
+      img.style.border = "1px solid #ccc";
+      img.style.borderRadius = "5px";
+      img.style.margin = "5px";
+      img.style.cursor = "pointer";
+
+      img.onerror = () => {
+        img.style.display = 'none';
+      };
+
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";   // Show overlay
+        lightboxImg.src = imgName;          // Set full image src
+      });
+
+      galleryDiv.appendChild(img);
+    });
+
+    // Clicking on overlay hides it
+    lightbox.addEventListener("click", () => {
+      lightbox.style.display = "none";
+      lightboxImg.src = "";
+    });
+  </script>
+
   </main>
 
   <!-- Inline JS loader for header -->

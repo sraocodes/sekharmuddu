@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Thesis Advisor & Students – Prof. M. Sekhar</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
   <style>
     /* Additional styles for numbered lists with padding */
     ol.thesis-list {
@@ -13,18 +13,15 @@
       padding-left: 2.5rem;
       counter-reset: item;
     }
-    
     ol.thesis-list li {
       position: relative;
       padding-left: 0.5rem;
       margin-bottom: 1rem;
       text-indent: -0.5rem;
     }
-    
     ol.thesis-list li::marker {
       font-weight: bold;
     }
-    
     .section-heading {
       margin-top: 2rem;
       margin-bottom: 1rem;
@@ -32,30 +29,25 @@
       border-bottom: 2px solid #ddd;
       padding-bottom: 0.3rem;
     }
-    
     .sub-heading {
       margin-top: 1.5rem;
       margin-bottom: 0.8rem;
       color: #333;
     }
-    
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 0.5rem;
       margin-bottom: 1.5rem;
     }
-    
     th, td {
       border: 1px solid #ccc;
       padding: 0.4rem 0.6rem;
       text-align: center;
     }
-    
     th {
       background: #f5f5f5;
     }
-    
     .staff-photo {
       display: block;
       margin: 2rem auto;
@@ -67,183 +59,179 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Prof. M. Sekhar</h1>
-    <p>Professor, Dept. of Civil Engg., Indian Institute of Science, Bangalore (India)</p>
-    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-  </header>
+  <!-- Modular header/nav/sidebar included here -->
+  <div include-html="header.html"></div>
 
-  <div class="container">
-    <aside>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="education.html">Education &amp; Experience</a></li>
-          <li><a href="research.html">Research Interest</a></li>
-          <li><a href="teaching.html">Teaching</a></li>
-          <li><a href="activities.html">Synergistic Activities</a></li>
-          <li><a href="publications.html">Publications</a></li>
-          <li><a href="recognitions.html">Recognitions</a></li>
-          <li><a href="thesis.html">Thesis Advisor &amp; Students</a></li>
-        </ul>
-      </nav>
-    </aside>
+  <main>
+    <section id="thesis-counts">
+      <h2 class="section-heading">Thesis Counts</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Degree</th>
+            <th>Total</th>
+            <th>Completed</th>
+            <th>Under Progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Ph.D</td><td>32</td><td>17</td><td>15</td></tr>
+          <tr><td>M.Sc (Engg)</td><td>5</td><td>5</td><td>–</td></tr>
+          <tr><td>M.E.</td><td>26</td><td>26</td><td>–</td></tr>
+          <tr><td>Int. Master (Res.)</td><td>1</td><td>1</td><td>–</td></tr>
+          <tr><td>Post-doc / RA</td><td>10</td><td>10</td><td>–</td></tr>
+        </tbody>
+      </table>
+    </section>
 
-    <main>
-      <section id="thesis-counts">
-        <h2 class="section-heading">Thesis Counts</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Degree</th>
-              <th>Total</th>
-              <th>Completed</th>
-              <th>Under Progress</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Ph.D</td><td>32</td><td>17</td><td>15</td></tr>
-            <tr><td>M.Sc (Engg)</td><td>5</td><td>5</td><td>–</td></tr>
-            <tr><td>M.E.</td><td>26</td><td>26</td><td>–</td></tr>
-            <tr><td>Int. Master (Res.)</td><td>1</td><td>1</td><td>–</td></tr>
-            <tr><td>Post-doc / RA</td><td>10</td><td>10</td><td>–</td></tr>
-          </tbody>
-        </table>
-      </section>
+    <section id="postdocs">
+      <h2 class="section-heading">Post-doctoral & Research Associates</h2>
+      <ol class="thesis-list">
+        <li><strong>Dr. Sathyanarayan Rao</strong> (Sep 2022–Aug 2023). Hydro-Reward project, Karnataka Watershed Development. PhD: UC Louvain, Belgium.</li>
+        <li><strong>Dr. Rajesh Rajendran</strong> (2018–2023). Groundwater modelling in Cauvery Basin. PhD: Anna University Chennai.</li>
+        <li><strong>Lalitha Sarada</strong> (Oct 2021–May 2022). Fractured rock aquifer modelling. PhD: IIT Hyderabad.</li>
+        <li><strong>Dr. Soumendra Banja</strong> (Aug 2019–Jun 2021). Geochemical modelling. PhD: IIT Kharagpur.</li>
+        <li><strong>Dr. Tripti Muguli</strong> (2017–2018). Gas emission studies. DST-INSPIRE Faculty, NCESS.</li>
+        <li><strong>Dr. Raghu Jana</strong> (2017–2018). Soil moisture modelling. Research Scientist, SkolTech, Russia.</li>
+        <li><strong>Dr. Sat K Tomer</strong> (2015–2016). Remote sensing & soil moisture. CEO, Satyukt Analytics Pvt Ltd.</li>
+        <li><strong>Dr. Parag S Narvekar</strong> (2015–2016). Soil moisture & RS. Director, Sensartics Pvt Ltd.</li>
+        <li><strong>Dr. Murugan R</strong> (2013–2014). Stochastic groundwater flow. Research Scientist, NCESS.</li>
+        <li><strong>Dr. Priyanka Jamwal</strong> (2010–2012). Nitrate characterization. Fellow, ATREE, Bangalore.</li>
+      </ol>
+    </section>
 
-      <section id="postdocs">
-        <h2 class="section-heading">Post-doctoral & Research Associates</h2>
-        <ol class="thesis-list">
-          <li><strong>Dr. Sathyanarayan Rao</strong> (Sep 2022–Aug 2023). Hydro-Reward project, Karnataka Watershed Development. PhD: UC Louvain, Belgium.</li>
-          <li><strong>Dr. Rajesh Rajendran</strong> (2018–2023). Groundwater modelling in Cauvery Basin. PhD: Anna University Chennai.</li>
-          <li><strong>Lalitha Sarada</strong> (Oct 2021–May 2022). Fractured rock aquifer modelling. PhD: IIT Hyderabad.</li>
-          <li><strong>Dr. Soumendra Banja</strong> (Aug 2019–Jun 2021). Geochemical modelling. PhD: IIT Kharagpur.</li>
-          <li><strong>Dr. Tripti Muguli</strong> (2017–2018). Gas emission studies. DST-INSPIRE Faculty, NCESS.</li>
-          <li><strong>Dr. Raghu Jana</strong> (2017–2018). Soil moisture modelling. Research Scientist, SkolTech, Russia.</li>
-          <li><strong>Dr. Sat K Tomer</strong> (2015–2016). Remote sensing & soil moisture. CEO, Satyukt Analytics Pvt Ltd.</li>
-          <li><strong>Dr. Parag S Narvekar</strong> (2015–2016). Soil moisture & RS. Director, Sensartics Pvt Ltd.</li>
-          <li><strong>Dr. Murugan R</strong> (2013–2014). Stochastic groundwater flow. Research Scientist, NCESS.</li>
-          <li><strong>Dr. Priyanka Jamwal</strong> (2010–2012). Nitrate characterization. Fellow, ATREE, Bangalore.</li>
-        </ol>
-      </section>
+    <section id="phd-theses">
+      <h2 class="section-heading">Ph.D Theses Supervised at IISc</h2>
 
-      <section id="phd-theses">
-        <h2 class="section-heading">Ph.D Theses Supervised at IISc</h2>
+      <h3 class="sub-heading">Under Progress</h3>
+      <ol class="thesis-list">
+        <li>Modeling soil moisture and solute transport in shallow semi-arid soils (Ms. U. Deepti) – joint guidance with Prof. M. Sudhakar Rao</li>
+        <li>Modeling baseflow in headwater catchments of peninsular Indian rivers (Ms. Ponni Mariet George)</li>
+        <li>Stochastic modeling of flow and solute transport in porous media (Ms. T. Bharathi) – joint guidance with Prof. C. S. Manohar</li>
+        <li>Root zone soil moisture using ENKF with surface soil moisture & temperature (Mr. R. Kandala)</li>
+        <li>Hydrochemistry & water isotope behaviour in Kabini river (Mr. S. N. V. Nara) – joint guidance under ICWaR; <em>thesis submitted</em></li>
+        <li>Residence times in groundwater systems (Mr. B. Bhaduri)</li>
+        <li>Carbon fluxes in Kabini CZO (Mr. A. Chakraborty) – joint guidance under ICWaR; PMRF awardee</li>
+        <li>Coupled surface–groundwater models for climate change impacts (Mr. S. Goswami) – PMRF awardee</li>
+        <li>Baseflow trends in west-flowing Western Ghats rivers (Mr. R. Sharma) – external registrant, NCESS</li>
+        <li>Groundwater–atmosphere feedbacks in central India (Mr. C. Sarat) – joint guidance under ICWaR; PMRF awardee</li>
+        <li>Estimating soil moisture from microwave data (Mr. V. Gupta) – PMRF awardee</li>
+        <li>Global groundwater model with fine catchment attributes (Mr. A. Kaundal)</li>
+        <li>Sediment transport model in Indian river basins (Mr. A. Dahiwale)</li>
+        <li>Water–crop–carbon cycle (Mr. B. Karthik)</li>
+        <li>Water cycle in agroforestry (Mr. Y. Shigefuji)</li>
+      </ol>
 
-        <h3 class="sub-heading">Under Progress</h3>
-        <ol class="thesis-list">
-          <li>Modeling soil moisture and solute transport in shallow semi-arid soils (Ms. U. Deepti) – joint guidance with Prof. M. Sudhakar Rao</li>
-          <li>Modeling baseflow in headwater catchments of peninsular Indian rivers (Ms. Ponni Mariet George)</li>
-          <li>Stochastic modeling of flow and solute transport in porous media (Ms. T. Bharathi) – joint guidance with Prof. C. S. Manohar</li>
-          <li>Root zone soil moisture using ENKF with surface soil moisture & temperature (Mr. R. Kandala)</li>
-          <li>Hydrochemistry & water isotope behaviour in Kabini river (Mr. S. N. V. Nara) – joint guidance under ICWaR; <em>thesis submitted</em></li>
-          <li>Residence times in groundwater systems (Mr. B. Bhaduri)</li>
-          <li>Carbon fluxes in Kabini CZO (Mr. A. Chakraborty) – joint guidance under ICWaR; PMRF awardee</li>
-          <li>Coupled surface–groundwater models for climate change impacts (Mr. S. Goswami) – PMRF awardee</li>
-          <li>Baseflow trends in west-flowing Western Ghats rivers (Mr. R. Sharma) – external registrant, NCESS</li>
-          <li>Groundwater–atmosphere feedbacks in central India (Mr. C. Sarat) – joint guidance under ICWaR; PMRF awardee</li>
-          <li>Estimating soil moisture from microwave data (Mr. V. Gupta) – PMRF awardee</li>
-          <li>Global groundwater model with fine catchment attributes (Mr. A. Kaundal)</li>
-          <li>Sediment transport model in Indian river basins (Mr. A. Dahiwale)</li>
-          <li>Water–crop–carbon cycle (Mr. B. Karthik)</li>
-          <li>Water cycle in agroforestry (Mr. Y. Shigefuji)</li>
-        </ol>
+      <h3 class="sub-heading">Completed</h3>
+      <ol class="thesis-list">
+        <li>Spatial downscaling of rainfall for hydrological modeling (Y. Subash, 2022) – now at Pixxel, Bangalore</li>
+        <li>Impact of agricultural systems on groundwater quality (S. Buvaneshwari, 2018) – Hydro Nation International Fellow, Scotland</li>
+        <li>Novel upwind & central schemes for hyperbolic systems (N. K. Garg, 2017) – Assistant Professor, IIT Kharagpur</li>
+        <li>Evapotranspiration from satellite data (R. Eswar, 2017) – Asst. Prof., IIT Bombay</li>
+        <li>Kinetic theory based schemes for incompressible flow (A. Ruhi, 2017) – Post-doc, Univ. of Mainz</li>
+        <li>Root zone hydraulic properties via inversion (K. Sreelash, 2014) – Scientist, NCESS</li>
+        <li>Soil moisture retrieval & assimilation (Sat K Tomer, 2013) – CEO, Satyukt Analytics</li>
+        <li>Groundwater dynamics under rainfall variability (Y. Javeed, 2010) – Prof., NIE Mysore</li>
+        <li>Precipitation controls on hydrochemistry (B. Siva Soumya, 2009) – Environmental Engineer, Dar al-Handasah</li>
+        <li>Perturbation analysis of solute transport (A. Chaudhuri, 2006) – Prof., IIT Madras</li>
+        <li>Solute transport & geochemistry modeling (K. V. Hayagreeva Rao, 2005) – Senior Research Engineer, GE</li>
+        <li>Recharge wells in layered aquifers (P. K. Majumdar, 2007) – Prof., Engineering College Gujarat</li>
+        <li>Solute transport in single fracture (G. Suresh Kumar, 2003) – Prof., IIT Madras</li>
+        <li>Sorption & biodegradation in porous media (S. G. Thampi, 2002) – Prof., NIT Calicut</li>
+        <li>Hybrid FVM for reactive solute transport (S. Jyothish, 1999) – Member Tech Staff, Verizon</li>
+        <li>Parameter estimation of groundwater systems (M. K. Nagaraj, 1999) – Prof., NIT Surathkal</li>
+        <li>Unsaturated flow modeling in soils (K. S. Hari Prasad, 1996) – Prof., IIT Roorkee</li>
+      </ol>
+    </section>
 
-        <h3 class="sub-heading">Completed</h3>
-        <ol class="thesis-list">
-          <li>Spatial downscaling of rainfall for hydrological modeling (Y. Subash, 2022) – now at Pixxel, Bangalore</li>
-          <li>Impact of agricultural systems on groundwater quality (S. Buvaneshwari, 2018) – Hydro Nation International Fellow, Scotland</li>
-          <li>Novel upwind & central schemes for hyperbolic systems (N. K. Garg, 2017) – Assistant Professor, IIT Kharagpur</li>
-          <li>Evapotranspiration from satellite data (R. Eswar, 2017) – Asst. Prof., IIT Bombay</li>
-          <li>Kinetic theory based schemes for incompressible flow (A. Ruhi, 2017) – Post-doc, Univ. of Mainz</li>
-          <li>Root zone hydraulic properties via inversion (K. Sreelash, 2014) – Scientist, NCESS</li>
-          <li>Soil moisture retrieval & assimilation (Sat K Tomer, 2013) – CEO, Satyukt Analytics</li>
-          <li>Groundwater dynamics under rainfall variability (Y. Javeed, 2010) – Prof., NIE Mysore</li>
-          <li>Precipitation controls on hydrochemistry (B. Siva Soumya, 2009) – Environmental Engineer, Dar al-Handasah</li>
-          <li>Perturbation analysis of solute transport (A. Chaudhuri, 2006) – Prof., IIT Madras</li>
-          <li>Solute transport & geochemistry modeling (K. V. Hayagreeva Rao, 2005) – Senior Research Engineer, GE</li>
-          <li>Recharge wells in layered aquifers (P. K. Majumdar, 2007) – Prof., Engineering College Gujarat</li>
-          <li>Solute transport in single fracture (G. Suresh Kumar, 2003) – Prof., IIT Madras</li>
-          <li>Sorption & biodegradation in porous media (S. G. Thampi, 2002) – Prof., NIT Calicut</li>
-          <li>Hybrid FVM for reactive solute transport (S. Jyothish, 1999) – Member Tech Staff, Verizon</li>
-          <li>Parameter estimation of groundwater systems (M. K. Nagaraj, 1999) – Prof., NIT Surathkal</li>
-          <li>Unsaturated flow modeling in soils (K. S. Hari Prasad, 1996) – Prof., IIT Roorkee</li>
-        </ol>
-      </section>
+    <section id="msc-theses">
+      <h2 class="section-heading">M.Sc (Engg.) Theses Supervised</h2>
+      <ol class="thesis-list">
+        <li>Modeling salinity impact on turmeric crop (Ms. Teddy Kizza, 2013) – Scientist, National Agricultural Organisation, Uganda</li>
+        <li>Lateral flow in hard rock aquifer (S. N. Rasmi, 2005)</li>
+        <li>Aerobic biodegradation modeling (Anjani Kumar, 2003) – Research Engineer, GE</li>
+        <li>GIS-coupled groundwater modeling (M. R. V. P. Narayana, 2003)</li>
+        <li>Solute transport via hybrid FCT (C. Srinivasan, 2000)</li>
+      </ol>
+    </section>
 
-      <section id="msc-theses">
-        <h2 class="section-heading">M.Sc (Engg.) Theses Supervised</h2>
-        <ol class="thesis-list">
-          <li>Modeling salinity impact on turmeric crop (Ms. Teddy Kizza, 2013) – Scientist, National Agricultural Organisation, Uganda</li>
-          <li>Lateral flow in hard rock aquifer (S. N. Rasmi, 2005)</li>
-          <li>Aerobic biodegradation modeling (Anjani Kumar, 2003) – Research Engineer, GE</li>
-          <li>GIS-coupled groundwater modeling (M. R. V. P. Narayana, 2003)</li>
-          <li>Solute transport via hybrid FCT (C. Srinivasan, 2000)</li>
-        </ol>
-      </section>
+    <section id="me-theses">
+      <h2 class="section-heading">M.E. Theses Supervised</h2>
+      <ol class="thesis-list">
+        <li>Sediment transport modeling (Arun V H, 2023)</li>
+        <li>Machine learning for soil moisture (Satish Kumar Nukala, 2023)</li>
+        <li>Urban groundwater modeling (Ankit Kumar, 2022)</li>
+        <li>Crop water budget & irrigation (Manish Kumar, 2020)</li>
+        <li>Soil moisture estimation via L-band SAR (Deepak Kumar, 2019)</li>
+        <li>Crop productivity in rainfed systems (Kayalvizhi S., 2018)</li>
+        <li>ML for agriculture (Rukmangadan D., 2018)</li>
+        <li>TerraSAR-X vs Sentinel-1 imaging (Sandarbh A., 2017)</li>
+        <li>GPR for soil moisture (Prajakt R., 2015)</li>
+        <li>Recharge estimation in Berambadi (Satendra K. Dhiman, 2013) – PhD student at IIT Roorkee</li>
+        <li>Groundwater modeling with GRASS-GIS (Manish Gautam, 2013)</li>
+        <li>Lumped vs distributed modeling (Madhusudhan N, 2012)</li>
+        <li>Fracture characterization via fiber optics (Prateek Chandrayan, 2011)</li>
+        <li>Urban-periurban groundwater with PORFLOW (Mayur M. Shindekar, 2011)</li>
+        <li>Spatio-temporal groundwater levels (Jowon Siket, 2010)</li>
+        <li>Soil moisture assimilation experiments (Sat Kumar, 2008)</li>
+        <li>Watershed modeling with SWAT (M. V. Pradeep, 2003)</li>
+        <li>Phosphorus modeling in lakes (B. Raghuram Singh, 2003)</li>
+        <li>Dissolved oxygen estimation (G. Babu Rao, 2001)</li>
+        <li>Storm water modeling with SWMM & GIS (J. Srinivasulu, 2000)</li>
+        <li>VB software for petroleum risk (N. Stanley Joseph, 1999)</li>
+        <li>Non-uniform aquifer analysis (L. P. Murali Krishna, 1998)</li>
+        <li>Genetic algorithm for sampling design (C. V. Abdul Nazir, 1997)</li>
+        <li>Unsaturated flow numerical model (A. Hara Gopal, 1997)</li>
+        <li>Multilayered leaky aquifer analysis (V. Ramesh, 1996)</li>
+        <li>Contaminant transport modeling (P. Sreenivasa Rao, 1995)</li>
+      </ol>
+    </section>
 
-      <section id="me-theses">
-        <h2 class="section-heading">M.E. Theses Supervised</h2>
-        <ol class="thesis-list">
-          <li>Sediment transport modeling (Arun V H, 2023)</li>
-          <li>Machine learning for soil moisture (Satish Kumar Nukala, 2023)</li>
-          <li>Urban groundwater modeling (Ankit Kumar, 2022)</li>
-          <li>Crop water budget & irrigation (Manish Kumar, 2020)</li>
-          <li>Soil moisture estimation via L-band SAR (Deepak Kumar, 2019)</li>
-          <li>Crop productivity in rainfed systems (Kayalvizhi S., 2018)</li>
-          <li>ML for agriculture (Rukmangadan D., 2018)</li>
-          <li>TerraSAR-X vs Sentinel-1 imaging (Sandarbh A., 2017)</li>
-          <li>GPR for soil moisture (Prajakt R., 2015)</li>
-          <li>Recharge estimation in Berambadi (Satendra K. Dhiman, 2013) – PhD student at IIT Roorkee</li>
-          <li>Groundwater modeling with GRASS-GIS (Manish Gautam, 2013)</li>
-          <li>Lumped vs distributed modeling (Madhusudhan N, 2012)</li>
-          <li>Fracture characterization via fiber optics (Prateek Chandrayan, 2011)</li>
-          <li>Urban-periurban groundwater with PORFLOW (Mayur M. Shindekar, 2011)</li>
-          <li>Spatio-temporal groundwater levels (Jowon Siket, 2010)</li>
-          <li>Soil moisture assimilation experiments (Sat Kumar, 2008)</li>
-          <li>Watershed modeling with SWAT (M. V. Pradeep, 2003)</li>
-          <li>Phosphorus modeling in lakes (B. Raghuram Singh, 2003)</li>
-          <li>Dissolved oxygen estimation (G. Babu Rao, 2001)</li>
-          <li>Storm water modeling with SWMM & GIS (J. Srinivasulu, 2000)</li>
-          <li>VB software for petroleum risk (N. Stanley Joseph, 1999)</li>
-          <li>Non-uniform aquifer analysis (L. P. Murali Krishna, 1998)</li>
-          <li>Genetic algorithm for sampling design (C. V. Abdul Nazir, 1997)</li>
-          <li>Unsaturated flow numerical model (A. Hara Gopal, 1997)</li>
-          <li>Multilayered leaky aquifer analysis (V. Ramesh, 1996)</li>
-          <li>Contaminant transport modeling (P. Sreenivasa Rao, 1995)</li>
-        </ol>
-      </section>
+    <section id="integrated-master">
+      <h2 class="section-heading">Integrated Master Theses Supervised</h2>
+      <ol class="thesis-list">
+        <li>N₂O emissions from maize cropland (Arjun C., June 2016) – now PhD Stockholm University</li>
+      </ol>
+    </section>
 
-      <section id="integrated-master">
-        <h2 class="section-heading">Integrated Master Theses Supervised</h2>
-        <ol class="thesis-list">
-          <li>N₂O emissions from maize cropland (Arjun C., June 2016) – now PhD Stockholm University</li>
-        </ol>
-      </section>
+    <section id="project-staff">
+      <h2 class="section-heading">Project Staff</h2>
+      <h3 class="sub-heading">Current</h3>
+      <ol class="thesis-list">
+        <li>Mr. Rajsekhar Kandala</li>
+        <li>Ms. Deepti Upadhyaya</li>
+        <li>Mr. K. Sanjeeva Murthy</li>
+        <li>Mr. M. Soundarrajan</li>
+      </ol>
+      <h3 class="sub-heading">Former</h3>
+      <ol class="thesis-list">
+        <li>Mr. P. Giriraja</li>
+        <li>Ms. S. Kayalvizhi – now PhD student at Penn State, USA</li>
+        <li>Amit K. Sharma – PhD Université Rennes 2; Technical Staff, Robert Bosch, Bangalore</li>
+        <li>Mr. R. Avinash</li>
+        <li>Ms. Chenzu Prince</li>
+      </ol>
+    </section>
 
-      <section id="project-staff">
-        <h2 class="section-heading">Project Staff</h2>
-        
-        <h3 class="sub-heading">Current</h3>
-        <ol class="thesis-list">
-          <li>Mr. Rajsekhar Kandala</li>
-          <li>Ms. Deepti Upadhyaya</li>
-          <li>Mr. K. Sanjeeva Murthy</li>
-          <li>Mr. M. Soundarrajan</li>
-        </ol>
-        
-        <h3 class="sub-heading">Former</h3>
-        <ol class="thesis-list">
-          <li>Mr. P. Giriraja</li>
-          <li>Ms. S. Kayalvizhi – now PhD student at Penn State, USA</li>
-          <li>Amit K. Sharma – PhD Université Rennes 2; Technical Staff, Robert Bosch, Bangalore</li>
-          <li>Mr. R. Avinash</li>
-          <li>Ms. Chenzu Prince</li>
-        </ol>
-      </section>
+    <img src="./students.jpg" alt="Current Project Staff" class="staff-photo" />
+  </main>
 
-      <img src="./students.jpg" alt="Current Project Staff" class="staff-photo" />
-    </main>
-  </div>
+  <script>
+    // Simple HTML include for header (use same as other pages)
+    function includeHTML() {
+      document.querySelectorAll('[include-html]').forEach(function(el) {
+        const file = el.getAttribute('include-html');
+        if (file) {
+          fetch(file)
+            .then(response => response.text())
+            .then(data => {
+              el.innerHTML = data;
+              el.removeAttribute('include-html');
+            });
+        }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', includeHTML);
+  </script>
 </body>
 </html>

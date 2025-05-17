@@ -1,6 +1,7 @@
-/*—————— Variables & Reset ——————*/ 
+/* ============= VARIABLES & BASE RESET ============= */ 
 :root {
-  --clr-primary: #8b0000;
+  --clr-primary: #690000;
+  --clr-primary-light: rgba(139, 0, 0, 0.1);
   --clr-accent: #ffd700;
   --clr-nav-bg: #f4f4f4;
   --clr-bg: #fff;
@@ -8,7 +9,14 @@
   --ff-heading: 'Lora', serif;
   --ff-sans: 'Inter', sans-serif;
   --transition: 0.3s ease;
+  --border-radius: 6px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
 }
+
+/* Import Google Fonts directly in HTML instead for better performance */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap'); */
 
 *,
 *::before,
@@ -16,28 +24,39 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Add Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
 
 body {
-  font-family: var(--ff-sans), sans-serif;
+  font-family: var(--ff-sans), -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--clr-text);
   background: var(--clr-bg);
   line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
-/* Typography enhancements */
+/* ============= TYPOGRAPHY ============= */
 h1, h2, h3 {
-  font-family: var(--ff-heading);
+  font-family: var(--ff-heading), Georgia, serif;
   margin-bottom: 1rem;
   line-height: 1.3;
+  font-weight: 600;
+}
+
+h1 {
+  line-height: 1.2;
 }
 
 h2 {
   color: var(--clr-primary);
-  border-bottom: 2px solid rgba(139, 0, 0, 0.1);
+  border-bottom: 2px solid var(--clr-primary-light);
   padding-bottom: 0.5rem;
   margin-top: 2rem;
 }
@@ -54,15 +73,17 @@ p {
 a {
   color: var(--clr-primary);
   text-decoration: none;
-  transition: color var(--transition);
+  transition: color var(--transition), background-color var(--transition);
+  border-radius: 2px;
 }
 
 a:hover {
   color: var(--clr-accent);
 }
 
-/*—————— Header ——————*/
+/* ============= HEADER ============= */
 header {
+  position: -webkit-sticky; /* For Safari */
   position: sticky;
   top: 0;
   z-index: 10;
@@ -76,12 +97,14 @@ header {
 header h1 {
   font-size: clamp(1.5rem, 5vw, 2rem);
   font-weight: 600;
+  margin-bottom: 0.25rem;
 }
 
 header p {
   font-size: clamp(0.8rem, 2.5vw, 1rem);
   opacity: 0.9;
   font-style: italic;
+  margin-bottom: 0;
 }
 
 .menu-toggle {
@@ -89,14 +112,25 @@ header p {
   position: absolute;
   top: clamp(0.75rem, 2.5vw, 1.5rem);
   right: clamp(0.75rem, 2.5vw, 1.5rem);
-  background: none;
-  border: none;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 4px;
   color: #fff;
   font-size: 1.5rem;
   cursor: pointer;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/*—————— Layout ——————*/
+.menu-toggle:hover, .menu-toggle:focus {
+  background: rgba(255,255,255,0.3);
+}
+
+/* ============= LAYOUT ============= */
 .container {
   display: grid;
   grid-template-areas: "sidebar main";
@@ -111,8 +145,9 @@ aside {
   grid-area: sidebar;
   background: var(--clr-nav-bg);
   padding: 1.25rem;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  height: fit-content;
 }
 
 main {
@@ -131,31 +166,180 @@ section {
   margin: 1.5rem 0;
 }
 
-/*—————— Navigation ——————*/
-nav ul {
-  list-style: none;
-}
+/* Remove/Comment: all aside/sidebar/container grid styles */
 
-nav li + li {
-  margin-top: 0.75rem;
-  border-top: 1px solid rgba(139, 0, 0, 0.1);
-  padding-top: 0.75rem;
+/* --- HEADER & NAV --- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--clr-primary);
+  color: #fff;
+  padding: clamp(0.75rem, 2.5vw, 1.5rem);
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
-
-nav a {
-  display: block;
+.header-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.menu-toggle {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.menu-toggle:hover, .menu-toggle:focus {
+  background: rgba(255,255,255,0.3);
+}
+.home-button {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
   text-decoration: none;
+  font-size: 20px;
+  transition: background-color var(--transition);
+  -webkit-tap-highlight-color: transparent;
+}
+.home-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+}
+@media (max-width: 600px) {
+  .home-button {
+    left: 10px;
+    width: 36px;
+    height: 36px;
+  }
+  .home-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* --- NAVBAR --- */
+nav {
+  margin-top: 1rem;
+}
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+.nav-links li {
+  margin: 0;
+}
+.nav-links a {
+  display: block;
+  padding: 0.5rem 1rem;
   color: var(--clr-primary);
+  background: #fff;
+  border-radius: 4px;
+  text-decoration: none;
   font-weight: 600;
-  transition: color var(--transition);
-  padding: 0.25rem 0;
+  transition: background 0.2s, color 0.2s;
 }
-
-nav a:hover {
+.nav-links a:hover, .nav-links a.active {
   color: var(--clr-accent);
+  background: var(--clr-primary-light);
 }
 
-/* List styling */
+/* --- MOBILE NAV --- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 9;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (max-width: 600px) {
+  .menu-toggle {
+    display: flex;
+  }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    color: var(--clr-primary);
+    flex-direction: column;
+    align-items: stretch;
+    width: 75vw;
+    max-width: 300px;
+    height: 100vh;
+    padding-top: 5rem;
+    gap: 0;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.15);
+    transform: translateX(-100%);
+    transition: transform 0.2s;
+    z-index: 10;
+  }
+  .nav-links.open {
+    transform: translateX(0);
+  }
+  .nav-links a {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    color: var(--clr-primary);
+    background: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--clr-primary-light);
+  }
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+}
+
+/* --- Main content now starts below header --- */
+main {
+  max-width: 900px;
+  margin: 2rem auto 0 auto;
+  padding: 0 1rem;
+}
+
+/* Improve touch targets for mobile */
+@media (pointer: coarse) {
+  nav a {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+/* ============= LISTS ============= */
 ul, ol {
   margin-left: 1.5rem;
   margin-bottom: 1.5rem;
@@ -173,25 +357,40 @@ li {
   color: var(--clr-primary);
 }
 
-/*—————— Profile Card (Home) ——————*/
+/* ============= PROFILE CARD ============= */
 .profile-card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  box-shadow: var(--shadow-lg);
   max-width: 360px;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
   overflow: hidden;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.profile-card img {
+.profile-image-container {
+  width: 180px;
+  height: 180px;
+  margin-top: 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--clr-nav-bg);
+  box-shadow: var(--shadow-md);
+}
+
+.profile-image-container img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
 .profile-details {
-  padding: 1rem;
+  padding: 1.25rem;
+  width: 100%;
 }
 
 .profile-details address {
@@ -205,7 +404,47 @@ li {
   font-weight: bold;
 }
 
-/*—————— Tablet: ≤1024px ——————*/
+/* ============= INFO SECTIONS ============= */
+.info-section {
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.info-section h2 {
+  font-size: 1.3rem;
+  color: var(--clr-primary);
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid var(--clr-nav-bg);
+  padding-bottom: 0.3rem;
+}
+
+.info-section a {
+  color: var(--clr-primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.info-section a:hover {
+  color: var(--clr-accent);
+}
+
+.contact-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  align-items: start;
+  margin-top: 0.5rem;
+}
+
+.contact-details dt {
+  font-weight: bold;
+}
+
+.contact-details dd {
+  margin: 0;
+}
+
+/* ============= TABLET: ≤1024px ============= */
 @media (max-width: 1024px) {
   .container {
     grid-template-areas:
@@ -213,17 +452,21 @@ li {
       "sidebar";
     grid-template-columns: 1fr;
   }
-  /* turn the sidebar nav into a horizontal top menu */
+  
+  /* Turn the sidebar nav into a horizontal top menu */
   aside {
     order: 2;
     padding: 0.5rem 1rem;
+    width: 100%;
   }
+  
   nav ul {
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
   }
+  
   nav li + li {
     margin-top: 0;
     border-top: none;
@@ -233,32 +476,148 @@ li {
   }
 }
 
-/*—————— Mobile: ≤600px ——————*/
+/* ============= MOBILE: ≤600px ============= */
 @media (max-width: 600px) {
+  /* Mobile menu toggle */
   .menu-toggle {
-    display: block;
+    display: flex;
   }
+  
+  /* Improved Safari-compatible mobile menu */
   aside {
     position: fixed;
     top: 0;
-    left: -100%;
-    width: 70%;
+    left: 0;
+    width: 80%;
     height: 100%;
-    transition: left var(--transition);
+    transition: transform var(--transition);
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%); /* For Safari */
     z-index: 9;
     padding: 1rem;
+    background: var(--clr-bg);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.15);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   }
+  
   aside.open {
-    left: 0;
+    transform: translateX(0);
+    -webkit-transform: translateX(0); /* For Safari */
   }
+  
+  /* Improved mobile navigation */
   nav ul {
     display: flex;
     flex-direction: column;
+    margin-top: 3.5rem;
   }
+  
   nav li + li {
     border-left: none;
     padding-left: 0;
-    border-top: 1px solid rgba(139, 0, 0, 0.1);
+    border-top: 1px solid var(--clr-primary-light);
     padding-top: 0.75rem;
   }
+  
+  nav a {
+    padding: 0.75rem;
+    font-size: 1.1rem;
+  }
+  
+  /* Overlay for mobile menu */
+  .container::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition), visibility var(--transition);
+    -webkit-backdrop-filter: blur(2px); /* Safari support */
+    backdrop-filter: blur(2px);
+  }
+  
+  .aside-open .container::before {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Other mobile tweaks */
+  .info-section {
+    padding: 0;
+  }
+  
+  .profile-card {
+    max-width: 320px;
+  }
+  
+  .profile-image-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Fix for Safari sticky header */
+  header {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+
+  /* Improve touch targets */
+  .menu-toggle,
+  nav a {
+    min-height: 44px; /* Apple's recommended minimum touch target size */
+  }
+}
+
+/* ============= PRINT STYLES ============= */
+@media print {
+  header {
+    position: static;
+    box-shadow: none;
+    padding: 1rem 0;
+    color: var(--clr-primary);
+    background: none;
+  }
+  
+  .container {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+  
+  aside, .menu-toggle {
+    display: none;
+  }
+  
+  main {
+    width: 100%;
+  }
+  
+  .profile-card {
+    box-shadow: none;
+    max-width: 100%;
+  }
+  
+  a {
+    color: var(--clr-text);
+    text-decoration: underline;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
+  }
+}
+
+/* Print styles */
+@media print {
+  header, aside, .menu-toggle, .overlay { display: none !important; }
+  main, .profile-card { box-shadow: none !important; max-width: 100% !important; }
+  body, main { background: #fff !important; color: #111 !important; }
+  a, a:visited { color: #111 !important; text-decoration: underline; }
 }

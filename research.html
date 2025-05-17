@@ -4,105 +4,100 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Research Interest – Prof. M. Sekhar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- header (same as index/education) -->
-  <header>
-    <h1>Prof. M. Sekhar</h1>
-    <p>Professor, Dept. of Civil Engg., Indian Institute of Science, Bangalore (India)</p>
-    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-  </header>
+  <!-- Include header/navbar -->
+  <div include-html="header.html"></div>
 
-  <div class="container">
-    <!-- sidebar nav -->
-    <aside>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="education.html">Education &amp; Experience</a></li>
-          <li><a href="research.html">Research Interest</a></li>
-          <li><a href="teaching.html">Teaching</a></li>
-          <li><a href="activities.html">Synergistic Activities</a></li>
-          <li><a href="publications.html">Publications</a></li>
-          <li><a href="recognitions.html">Recognitions</a></li>
-          <li><a href="thesis.html">Thesis Advisor &amp; Students</a></li>
-        </ul>
-      </nav>
-    </aside>
+  <main>
+    <!-- Intro paragraph -->
+    <section id="intro">
+      <p>
+        I work in research areas including groundwater hydrology, agro-hydrology,
+        satellite hydrology and urban hydrogeology. My interests include analysis
+        of flow and reactive transport in groundwater systems, field-scale
+        experiments in watershed hydrology, hydroclimatic & anthropogenic controls
+        on groundwater, numerical methods, geospatial & geophysical methods,
+        optimization & inverse problems, and modeling of environmental hydraulic
+        processes.
+      </p>
+    </section>
 
-    <!-- main content -->
-    <main>
-      <!-- Intro paragraph -->
-      <section id="intro">
-        <p>
-          I work in research areas including groundwater hydrology, agro-hydrology,
-          satellite hydrology and urban hydrogeology. My interests include analysis
-          of flow and reactive transport in groundwater systems, field-scale
-          experiments in watershed hydrology, hydroclimatic & anthropogenic controls
-          on groundwater, numerical methods, geospatial & geophysical methods,
-          optimization & inverse problems, and modeling of environmental hydraulic
-          processes.
-        </p>
-      </section>
+    <!-- Research Areas list -->
+    <section id="research-areas">
+      <h2>Research Areas</h2>
+      <ul>
+        <li>Groundwater resource assessment under the influence of climatic variations and anthropogenic effects using numerical modeling, statistical tools and field studies.</li>
+        <li>Retrieval of near surface soil moisture from radar remote sensing (SAR) and estimating profile soil moisture using modeling and assimilation at watershed scale.</li>
+        <li>Retrieval of rainfall and modeling of ET from remote sensing and assimilating into distributed hydrological models.</li>
+        <li>Stochastic modeling of flow and reactive solute transport in heterogeneous porous media. Theoretical studies and field scale experiments.</li>
+        <li>Integrated geochemical and hydrological studies in tropical regions using experimental watersheds.</li>
+        <li>Modeling groundwater in urban environments for resource and infrastructure studies.</li>
+        <li>Smart water solutions in agriculture: Integration of Sensors, Satellite &amp; ICT tools. <a href="http://www.ambhas.com/">ambhas.com</a></li>
+      </ul>
 
-      <!-- Research Areas list -->
-      <section id="research-areas">
-        <h2>Research Areas</h2>
-        <ul>
-          <li>Groundwater resource assessment under the influence of climatic variations and anthropogenic effects using numerical modeling, statistical tools and field studies.</li>
-          <li>Retrieval of near surface soil moisture from radar remote sensing (SAR) and estimating profile soil moisture using modeling and assimilation at watershed scale.</li>
-          <li>Retrieval of rainfall and modeling of ET from remote sensing and assimilating into distributed hydrological models.</li>
-          <li>Stochastic modeling of flow and reactive solute transport in heterogeneous porous media. Theoretical studies and field scale experiments.</li>
-          <li>Integrated geochemical and hydrological studies in tropical regions using experimental watersheds.</li>
-          <li>Modeling groundwater in urban environments for resource and infrastructure studies.</li>
-          <li>Smart water solutions in agriculture: Integration of Sensors, Satellite &amp; ICT tools. <a href="http://www.ambhas.com/">ambhas.com</a></li>
-        </ul>
+      <h3>Key Themes</h3>
+      <ol>
+        <li><strong>Retrieval of hydrological variables from remote sensing.</strong><br>
+          Calibration and validation of satellite retrievals of soil moisture, evapotranspiration, crop variables (e.g. leaf area index) and soil hydraulic properties from optical and microwave remote sensing.
+        </li>
+        <li><strong>Analysis of groundwater recharge, balance and behaviour at different scales in hard rock aquifers.</strong><br>
+          Kabini CZO comprises nested catchments of four orders (&lt;10 km², 80 km², 600 km² and 8000 km²) on granitic–gneissic aquifers. We develop scale-dependent relationships and modeling tools for groundwater balance and disaggregation approaches. <a href="http://bangalore.urbanmetabolism.asia/2017/10/17/groundwater-levels-from-2015-to-2017/">Details</a>
+        </li>
+        <li><strong>Effects of land use and land cover on recharge in semi-arid tropical soils.</strong><br>
+          Paired forested vs. agricultural catchments in Kabini CZO study how crop choice and irrigation practices alter recharge, water-use efficiency and crop productivity via coupled models.
+        </li>
+        <li><strong>Modeling water–rock interactions in tropical semi-arid catchments.</strong><br>
+          Field experiments and modeling investigate chemical fluxes (Ca, Mg, Si) from weathering to streams and oceans through groundwater pathways.
+        </li>
+        <li><strong>Analysis of nitrate transport and transformation in semi-arid soils.</strong><br>
+          Laboratory and field studies, combined with modeling, to understand nitrate leaching mechanisms in tropical semi-arid aquifers.
+        </li>
+        <li><strong>Smart water solutions in agriculture: Integration of Sensors, Satellite &amp; ICT tools.</strong><br>
+          Decision-support framework combining microwave satellite observations with IoT-enabled soil sensors for irrigation scheduling and water management. <a href="https://agritech.boschindia.com/imprint">Bosch Agritech</a>
+        </li>
+      </ol>
+    </section>
 
-        <h3>Key Themes</h3>
-        <ol>
-          <li><strong>Retrieval of hydrological variables from remote sensing.</strong><br>
-            Calibration and validation of satellite retrievals of soil moisture, evapotranspiration, crop variables (e.g. leaf area index) and soil hydraulic properties from optical and microwave remote sensing.
-          </li>
-          <li><strong>Analysis of groundwater recharge, balance and behaviour at different scales in hard rock aquifers.</strong><br>
-            Kabini CZO comprises nested catchments of four orders (<10 km², 80 km², 600 km² and 8000 km²) on granitic–gneissic aquifers. We develop scale-dependent relationships and modeling tools for groundwater balance and disaggregation approaches. <a href="http://bangalore.urbanmetabolism.asia/2017/10/17/groundwater-levels-from-2015-to-2017/">Details</a>
-          </li>
-          <li><strong>Effects of land use and land cover on recharge in semi-arid tropical soils.</strong><br>
-            Paired forested vs. agricultural catchments in Kabini CZO study how crop choice and irrigation practices alter recharge, water-use efficiency and crop productivity via coupled models.
-          </li>
-          <li><strong>Modeling water–rock interactions in tropical semi-arid catchments.</strong><br>
-            Field experiments and modeling investigate chemical fluxes (Ca, Mg, Si) from weathering to streams and oceans through groundwater pathways.
-          </li>
-          <li><strong>Analysis of nitrate transport and transformation in semi-arid soils.</strong><br>
-            Laboratory and field studies, combined with modeling, to understand nitrate leaching mechanisms in tropical semi-arid aquifers.
-          </li>
-          <li><strong>Smart water solutions in agriculture: Integration of Sensors, Satellite &amp; ICT tools.</strong><br>
-            Decision-support framework combining microwave satellite observations with IoT-enabled soil sensors for irrigation scheduling and water management. <a href="https://agritech.boschindia.com/imprint">Bosch Agritech</a>
-          </li>
-        </ol>
-      </section>
+    <!-- Weblinks -->
+    <section id="weblinks">
+      <h2>Weblinks</h2>
+      <ul>
+        <li><a href="https://youtu.be/ghyEpNt8oeo">YouTube Presentation</a></li>
+        <li><a href="http://183.82.2.177/VATI/home.php">VATI Portal</a></li>
+        <li><a href="http://183.82.2.177:8089/SujalaSM/login">Suja la Login</a></li>
+      </ul>
+    </section>
 
-      <!-- Weblinks -->
-      <section id="weblinks">
-        <h2>Weblinks</h2>
-        <ul>
-          <li><a href="https://youtu.be/ghyEpNt8oeo">YouTube Presentation</a></li>
-          <li><a href="http://183.82.2.177/VATI/home.php">VATI Portal</a></li>
-          <li><a href="http://183.82.2.177:8089/SujalaSM/login">Suja la Login</a></li>
-        </ul>
-      </section>
+    <!-- Kabini CZO -->
+    <section id="kabini-czo">
+      <h2>Kabini CZO</h2>
+      <p>The significance of studies in Kabini CZO:</p>
+      <ul>
+        <li><a href="http://geowww.agrocampus-ouest.fr/portails/?portail=aicha">agrocampus-ouest.fr</a></li>
+        <li><a href="http://www.cefirse.ird.fr/">cefirse.ird.fr</a></li>
+      </ul>
+    </section>
+  </main>
 
-      <!-- Kabini CZO -->
-      <section id="kabini-czo">
-        <h2>Kabini CZO</h2>
-        <p>The significance of studies in Kabini CZO:</p>
-        <ul>
-          <li><a href="http://geowww.agrocampus-ouest.fr/portails/?portail=aicha">agrocampus-ouest.fr</a></li>
-          <li><a href="http://www.cefirse.ird.fr/">cefirse.ird.fr</a></li>
-        </ul>
-      </section>
-    </main>
-  </div>
+  <!-- Inline JS loader for header -->
+  <script>
+    function includeHTML() {
+      document.querySelectorAll('[include-html]').forEach(function(el) {
+        const file = el.getAttribute('include-html');
+        if (file) {
+          fetch(file)
+            .then(response => response.text())
+            .then(data => {
+              el.innerHTML = data;
+              el.removeAttribute('include-html');
+            });
+        }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', includeHTML);
+  </script>
 </body>
 </html>

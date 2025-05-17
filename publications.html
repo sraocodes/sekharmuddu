@@ -5,64 +5,41 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Publications – Prof. M. Sekhar</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
-</head>
-<body>
-  <header>
-    <h1>Prof. M. Sekhar</h1>
-    <p>Professor, Dept. of Civil Engg., Indian Institute of Science, Bangalore (India)</p>
-    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-  </header>
-
-  <div class="container">
-    <aside>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="education.html">Education &amp; Experience</a></li>
-          <li><a href="research.html">Research Interest</a></li>
-          <li><a href="teaching.html">Teaching</a></li>
-          <li><a href="activities.html">Synergistic Activities</a></li>
-          <li><a href="publications.html">Publications</a></li>
-          <li><a href="recognitions.html">Recognitions</a></li>
-          <li><a href="thesis.html">Thesis Advisor &amp; Students</a></li>
-        </ul>
-      </nav>
-    </aside>
-
-    <main>
-      <section id="publications">
-        <h2>Publications</h2>
-        <div id="pubs">Loading...</div>
-      </section>
-    </main>
-  </div>
-
-        <style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
     /* Additional styles for numbered lists with padding */
     ol.publication-list {
       list-style-type: decimal;
       padding-left: 2.5rem;
       counter-reset: item;
     }
-    
     ol.publication-list li {
       position: relative;
       padding-left: 0.5rem;
       margin-bottom: 1rem;
       text-indent: -0.5rem;
     }
-    
     ol.publication-list li::marker {
       font-weight: bold;
     }
-    
     .section-heading {
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
   </style>
+</head>
+<body>
+  <!-- Include header/navbar -->
+  <div include-html="header.html"></div>
 
+  <main>
+    <section id="publications">
+      <h2>Publications</h2>
+      <div id="pubs">Loading...</div>
+    </section>
+  </main>
+
+  <!-- Publications loader: page-specific JS -->
   <script>
     fetch('publications.txt')
       .then(r => r.text())
@@ -71,18 +48,17 @@
         container.innerHTML = '';
         let currentOl;
         let itemCounter = 1; // Counter for numbered items
-        
+
         text.split('\n').forEach(line => {
           const trimmed = line.trim();
           // skip macros and blank lines
           if (!trimmed || trimmed.startsWith('<<')) return;
-          
+
           if (trimmed.startsWith('!')) {
             // Reset counter for each new section
             itemCounter = 1;
-            
+
             // heading
-            const level = (trimmed.match(/^!+/) || [''])[0].length;
             const txt = trimmed.replace(/^!+\s*/, '');
             const h = document.createElement('h2');
             h.textContent = txt;
@@ -96,7 +72,7 @@
               currentOl.className = 'publication-list';
               container.appendChild(currentOl);
             }
-            
+
             // remove marker
             let itemText = trimmed.replace(/^#\s*/, '');
             // strip color macros
@@ -113,6 +89,22 @@
         document.getElementById('pubs').textContent = 'Error loading publications.';
         console.error(err);
       });
+
+    // Include header.html logic
+    function includeHTML() {
+      document.querySelectorAll('[include-html]').forEach(function(el) {
+        const file = el.getAttribute('include-html');
+        if (file) {
+          fetch(file)
+            .then(response => response.text())
+            .then(data => {
+              el.innerHTML = data;
+              el.removeAttribute('include-html');
+            });
+        }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', includeHTML);
   </script>
 </body>
 </html>

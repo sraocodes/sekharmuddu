@@ -1,0 +1,68 @@
+<!-- Start of footer.html -->
+</main>
+</div>
+
+<!-- Improved Safari-compatible mobile menu toggle script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const overlay = document.querySelector('.overlay');
+    const body = document.body;
+    
+    function toggleMenu() {
+      mainNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', mainNav.classList.contains('open'));
+      overlay.classList.toggle('active');
+      
+      // Prevent background scrolling when menu is open
+      if (mainNav.classList.contains('open')) {
+        body.style.overflow = 'hidden';
+      } else {
+        body.style.overflow = '';
+      }
+    }
+    
+    menuToggle.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    
+    // Mark current page active
+    const currentPath = window.location.pathname;
+    const filename = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index.html';
+    const pageId = filename.split('.')[0] || 'home';
+    
+    // Remove any existing active classes
+    document.querySelectorAll('nav a').forEach(link => {
+      link.classList.remove('active');
+    });
+    
+    // Add active class to current page
+    if (pageId === 'index') {
+      document.getElementById('nav-home').classList.add('active');
+    } else {
+      const navElement = document.getElementById(`nav-${pageId}`);
+      if (navElement) {
+        navElement.classList.add('active');
+      }
+    }
+    
+    // Close menu when clicking a link on mobile
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768 && mainNav.classList.contains('open')) {
+          toggleMenu();
+        }
+      });
+    });
+    
+    // Close menu on resize if needed
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && mainNav.classList.contains('open')) {
+        toggleMenu();
+      }
+    });
+  });
+</script>
+</body>
+</html>
+<!-- End of footer.html -->

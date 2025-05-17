@@ -614,10 +614,93 @@ li {
   }
 }
 
-/* Print styles */
-@media print {
-  header, aside, .menu-toggle, .overlay { display: none !important; }
-  main, .profile-card { box-shadow: none !important; max-width: 100% !important; }
-  body, main { background: #fff !important; color: #111 !important; }
-  a, a:visited { color: #111 !important; text-decoration: underline; }
+/* Mobile Navigation CSS Fixes - Add to end of style.css */
+
+/* Safari compatibility fixes for mobile menu */
+@media (max-width: 600px) {
+  /* Improved mobile menu toggle button */
+  .menu-toggle {
+    display: flex;
+    z-index: 11; /* Must be above navigation */
+    -webkit-appearance: none; /* Fix for iOS styling */
+    touch-action: manipulation; /* Better touch handling */
+    -webkit-tap-highlight-color: transparent; /* Remove iOS tap highlight */
+  }
+  
+  /* Mobile navigation styling */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: #fff;
+    padding-top: 4rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    
+    /* Transform positioning */
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%); /* Required for Safari */
+    
+    /* Transitions - also need prefixes for Safari */
+    transition: transform 0.3s ease;
+    -webkit-transition: -webkit-transform 0.3s ease;
+    
+    /* Stacking and overflow */
+    z-index: 10;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+  
+  /* Open state */
+  .nav-links.open {
+    transform: translateX(0);
+    -webkit-transform: translateX(0); /* Required for Safari */
+  }
+  
+  /* Make links full width and improve tap targets */
+  .nav-links li {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--clr-primary-light);
+    min-height: 44px; /* iOS recommended touch target */
+  }
+  
+  /* Fixed overlay - CRITICAL for iOS */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden; /* Use visibility instead of pointer-events for iOS */
+    transition: opacity 0.3s, visibility 0.3s;
+    -webkit-backdrop-filter: blur(2px); /* Safari blur effect */
+    backdrop-filter: blur(2px);
+  }
+  
+  .overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
 }

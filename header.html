@@ -1,61 +1,65 @@
-<!-- header.html -->
+<!-- UPDATED header.html - Fixed mobile navigation -->
 <header>
-    <div class="header-content">
-      <a href="index.html" class="home-button" aria-label="Home">
-        <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-          <polyline points="9 22 9 12 15 12 15 22"></polyline>
-        </svg>
-      </a>
-      <h1>Prof. M. Sekhar</h1>
-      <p>Professor, Dept. of Civil Engg., Indian Institute of Science, Bangalore (India)</p>
-      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-    </div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="education.html">Education &amp; Experience</a></li>
-        <li><a href="research.html">Research Interest</a></li>
-        <li><a href="teaching.html">Teaching</a></li>
-        <li><a href="activities.html">Synergistic Activities</a></li>
-        <li><a href="publications.html">Publications</a></li>
-        <li><a href="recognitions.html">Recognitions</a></li>
-        <li><a href="thesis.html">Thesis Advisor &amp; Students</a></li>
-      </ul>
-    </nav>
-    <div class="overlay"></div>
-    <script>
-      // Mobile nav menu logic
-      const menuToggle = document.querySelector('.menu-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      const overlay = document.querySelector('.overlay');
-      menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-        overlay.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('open'));
-        document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
-      });
-      overlay.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        overlay.classList.remove('active');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
-      // Active link highlight
-      const current = location.pathname.split('/').pop() || 'index.html';
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        if (link.getAttribute('href') === current) link.classList.add('active');
-      });
-      // Close menu on nav click (mobile)
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-          if (window.innerWidth <= 600) {
-            navLinks.classList.remove('open');
-            overlay.classList.remove('active');
-            menuToggle.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-          }
-        });
-      });
-    </script>
-  </header>
+  <div class="header-content">
+    <a href="index.html" class="home-button" aria-label="Home">
+      <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+    <h1>Prof. M. Sekhar</h1>
+    <p>Professor, Dept. of Civil Engg., Indian Institute of Science, Bangalore (India)</p>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="education.html">Education &amp; Experience</a></li>
+      <li><a href="research.html">Research Interest</a></li>
+      <li><a href="teaching.html">Teaching</a></li>
+      <li><a href="activities.html">Synergistic Activities</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="recognitions.html">Recognitions</a></li>
+      <li><a href="thesis.html">Thesis Advisor &amp; Students</a></li>
+    </ul>
+  </nav>
+  <div class="overlay"></div>
+</header>
+<!-- The JavaScript below replaces the conflicting scripts in header.html and footer.html -->
+<!-- IMPORTANT: Remove any other nav menu scripts from footer.html or elsewhere -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const overlay = document.querySelector('.overlay');
+  
+  function toggleMenu() {
+    navLinks.classList.toggle('open');
+    overlay.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+  }
+  
+  menuToggle.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', toggleMenu);
+  
+  // Close menu when clicking a link (mobile only)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 600 && navLinks.classList.contains('open')) {
+        setTimeout(toggleMenu, 50);
+      }
+    });
+  });
+  
+  // Mark current page as active
+  const currentPath = window.location.pathname;
+  const filename = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index.html';
+  
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    if (link.getAttribute('href') === filename) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>

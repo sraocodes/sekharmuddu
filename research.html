@@ -81,6 +81,14 @@
       </ul>
     </section>
 
+    <!-- Kabini Images and Research Images -->
+    <!-- Kabini Images  Images -->
+    <section id="kabini-images">
+      <h2>Kabini Images</h2>
+      <div id="kabini-gallery" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+    </section>
+
+    <!-- Research Images -->
     <section id="research-images">
       <h2>Research Images</h2>
       <div id="image-gallery" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
@@ -103,8 +111,6 @@
       "r-5.jpg",
       "r-6.jpg",
       "r-7.jpg",
-      "r-8.jpg",
-      "r-9.jpg"
     ];
 
     const galleryDiv = document.getElementById("image-gallery");
@@ -138,6 +144,37 @@
       lightbox.style.display = "none";
       lightboxImg.src = "";
     });
+    const kabiniImages = [
+  "k-1.jpg",
+  "k-2.jpg",
+  // add more as needed
+];
+
+  const kabiniGalleryDiv = document.getElementById("kabini-gallery");
+
+  kabiniImages.forEach(imgName => {
+    const img = document.createElement("img");
+    img.src = imgName;
+    img.alt = imgName;
+    img.style.width = "200px";
+    img.style.border = "1px solid #ccc";
+    img.style.borderRadius = "5px";
+    img.style.margin = "5px";
+    img.style.cursor = "pointer";
+
+    img.onerror = () => {
+      img.style.display = 'none';
+    };
+
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";   // Show overlay
+      lightboxImg.src = imgName;          // Set full image src
+    });
+
+    kabiniGalleryDiv.appendChild(img);
+  });
+
+
   </script>
 
   </main>
